@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
-:root {
+
+
+@theme{
+  --color-black: #000000;
+  --color-primary: #1DB954;
+  --color-background: #121212;
+  --color-hover: #181818;
+  --color-primary-text: #EAEAEA;
+  --color-secondary-text: #B3B3B3;
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +34,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
