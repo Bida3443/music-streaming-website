@@ -6,7 +6,9 @@ import { MdHomeFilled } from "react-icons/md";
 export default function Home() {
   return <div className="min-h-screen">
     <nav className="h-15 flex justify-between items-center px-6 fixed top-0 left-0 w-full bg-black z-100">
-        <div className="flex gap-6 items-start">
+      <div className="flex items-center justify-between gap-6">
+        
+        <div className="flex gap-6 items-center justify-center">
           <Image 
           src="/logo.png" 
           alt="logo image" 
@@ -23,8 +25,9 @@ export default function Home() {
           <input type="text" className="h-full w-full outline-0 placeholder:text-primary-text" placeholder="what do you want to play" />
         </div>
 
+      </div>
         <div className="flex items-center gap-8">
-          <div className="flex gap-2 text-secondary-text font-bold border-r-2 border-primary-text p-6">
+          <div className="flex gap-2 text-secondary-text font-bold border-r-2 border-primary-text p-2">
             <a href="#" className="hover:text-primary-text">Premium</a>
             <a href="#" className="hover:text-primary-text">Support</a>
             <a href="#" className="hover:text-primary-text">Download</a>
