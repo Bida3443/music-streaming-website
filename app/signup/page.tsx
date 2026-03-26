@@ -8,7 +8,7 @@ export default function Page  (){
         <div className="bg-background flex flex-col items-center px-0 lg:px-12 py-6 rounded-md max-w-100 w-[90%]">
             <Image
             src="/logo.png"
-            alt="image"
+            alt="image" 
             width={500}
             height={500}
             className="h-11 w-11"/>

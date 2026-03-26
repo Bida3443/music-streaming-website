@@ -16,10 +16,10 @@ const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-        <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh]  p-2 overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0`}      >
+        <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh]  p-2 overflow-y-auto ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-500 lg:translate-x-0`}     >
             <div className= "flex justify-between text-primary-text items-center p-2 mb-4 ">
                 <h2 className="font-bold">You Library</h2>
-                <Link href="upload-song">
+                <Link href="/upload-song">
                 <LuPlus size="20"/>
                 </Link>
             </div>
