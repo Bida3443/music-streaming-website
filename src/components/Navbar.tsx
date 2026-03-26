@@ -23,7 +23,7 @@ export default function Navbar () {
           </Link>
         </div>
         <div className="bg-background lg:flex items-center h-11 w-90 px-3 gap-3 hidden text-primary-text rounded-full">
-          <GoSearch className="text-primary-text shrink-0"/>
+          <GoSearch className="text-primary-text shrink-0" size={22}/>
           <input type="text" className="h-full w-full outline-0 placeholder:text-primary-text" placeholder="what do you want to play" />
         </div>
 
@@ -35,7 +35,7 @@ export default function Navbar () {
             <a href="#" className="hover:text-primary-text">Download</a>
           </div>
           <div className="rounded-full h-11 text-gray-950 bg-primary-text font-bold hover:bg-secondary-text grid px-8 place-items-center">
-            <Link href="/Login">Login</Link>
+            <Link href="/login">Login</Link>
           </div>
         </div>
         
