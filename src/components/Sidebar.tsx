@@ -10,12 +10,13 @@ import { useState } from "react";
 
  export default function Sidebar() {
 
+const [Sidebar, setSidebar] = useState(false);
+
     
-    const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-        <aside className={`fixed left-2  top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${isOpen ?"translate-x-0" : "-translate-x-full"} `} >
+        <aside className={`fixed left-2 top-15 bg-background w-75 rounded-lg h-[90vh] p-2 overflow-y-auto ${Sidebar ? "translate-x-0" : "-translate-x-full"}`} >
             <div className="flex justify-between text-primary-text items-center p-2 mb-4 ">
                 <h2 className="font-bold">You Library</h2>
                 <Link href="upload-song">
@@ -106,7 +107,8 @@ import { useState } from "react";
         </aside>
 
         <button 
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setSidebar(!Sidebar)}
+        
         
         className="fixed bottom-5 bg-background w-12 h-12 grid place-items-center text-white rounded-full z-50 cursor-pointer left-5 lg:hidden">
             <MdOutlineLibraryMusic/>
