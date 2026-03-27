@@ -41,7 +41,12 @@ export  default function  Allsongs(){
             <p className="text-secondary-text text-sm">By The Lanterns</p>
             </div>
         </div>
-        <div className="bg-background p-3 cursor-pointer rounded-md hover:bg-hover">
+        <div className="bg-background p-3 cursor-pointer rounded-md hover:bg-hover relative group">
+
+            
+            <button className="bg-primary w-12 h-12 rounded-full grid place-items-center absolute bottom-8 opacity-0 group-hover:opacity-100 group-hover:bottom-18 right-5 transition-all duration-300 ease-in-out cursor-pointer">
+                <IoMdPlay/>
+            </button>
             <Image src= "/cover-4.jpeg" 
             alt="cover-image" 
             width={500} 
