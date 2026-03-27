@@ -49,7 +49,11 @@ const [isOpen, setIsOpen] = useState(false);
 
             </div>
             <div>
-                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover">
+                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover relative group">
+                    
+                    <button className="text-secondary-text absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer z-10 hidden group-hover:block">
+                        <FaTrash/>
+                    </button>
                     <Image 
                     src="/cover-1.jpeg"
                     alt= "cover-image"
@@ -65,7 +69,11 @@ const [isOpen, setIsOpen] = useState(false);
                 </div>
             </div>
             <div>
-                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover">
+                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover relative group ">
+                    
+                    <button className="text-secondary-text absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer z-10 hidden group-hover:block">
+                        <FaTrash/>
+                    </button>
                     <Image 
                     src="/cover-1.jpeg"
                     alt= "cover-image"
@@ -81,7 +89,11 @@ const [isOpen, setIsOpen] = useState(false);
                 </div>
             </div>
             <div>
-                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover">
+                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover relative group ">
+                    
+                    <button className="text-secondary-text absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer z-10 hidden group-hover:block">
+                        <FaTrash/>
+                    </button>
                     <Image 
                     src="/cover-1.jpeg"
                     alt= "cover-image"
@@ -97,7 +109,11 @@ const [isOpen, setIsOpen] = useState(false);
                 </div>
             </div>
             <div>
-                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover">
+                <div className="flex gap-2 items-center cursor-pointer mb-4 p-2 rounded-lg hover:bg-hover relative group ">
+                    
+                    <button className="text-secondary-text absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer z-10 hidden group-hover:block">
+                        <FaTrash/>
+                    </button>
                     <Image 
                     src="/cover-1.jpeg"
                     alt= "cover-image"
