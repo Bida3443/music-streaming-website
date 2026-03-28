@@ -1,6 +1,8 @@
 
 import Image from "next/image"
-import { IoMdPlay, IoMdSkipBackward, IoMdSkipForward } from "react-icons/io"
+import { IoMdPlay, IoMdSkipBackward, IoMdSkipForward, IoMdVolumeHigh } from "react-icons/io"
+import { LuRepeat1 } from "react-icons/lu"
+import { MdOutlineQueueMusic } from "react-icons/md"
 export default function MusicPlayer () {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-black text-white px-4 py-3 shadow-md z-50">
@@ -49,6 +51,23 @@ export default function MusicPlayer () {
                 </span>
 
             </div>
+
+            
+
+            </div>
+
+            {/* volume control */}
+            <div className="flex gap-2 items-center">
+                <button>
+                    <LuRepeat1/>
+                    </button> 
+                    <button className="text-secondary-text text-xl cursor-pointer"> 
+                    <MdOutlineQueueMusic/>
+                    </button>
+                    <button className="text-secondary-text text-xl cursor-pointer">
+                        <IoMdVolumeHigh/>
+                    </button>
+                    <input type="Range" min="0" max="100" className="w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none" />
 
             </div>
 
