@@ -1,11 +1,35 @@
-
+"use client"
 import Image from "next/image"
-import { IoMdPlay, IoMdSkipBackward, IoMdSkipForward, IoMdVolumeHigh } from "react-icons/io"
+import { useRef, useState } from "react";
+import { IoMdPause, IoMdPlay, IoMdSkipBackward, IoMdSkipForward, IoMdVolumeHigh } from "react-icons/io"
 import { LuRepeat1 } from "react-icons/lu"
 import { MdOutlineQueueMusic } from "react-icons/md"
+
+
+
 export default function MusicPlayer () {
+    const audioRef = useRef<HTMLAudioElement | null> (null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [volume, setVolume] = useState(50);
+    const [currentTime, setCurrentTime] = useState (0);
+    const [duration, setDuration] = useState(); 
+    
+
+    const togglePlayBotton  = ()=> {
+        if(!audioRef.current) return;
+
+        if (isPlaying) {
+            audioRef.current.pause();
+
+        }else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying)
+    }
   return (
     <div className="fixed bottom-0 left-0 w-full bg-black text-white px-4 py-3 shadow-md z-50">
+
+        <audio src="/audio/juice_WRLD.mp3" controls ref={audioRef}></audio>
         <div className="max-w-8xl gap-10 w-[90%] mx-auto flex items-center justify-between">
             <div className="flex gap-4 items-center">
                 <Image 
@@ -27,8 +51,9 @@ export default function MusicPlayer () {
                     <button className="text-xl text-secondary-text">
                         <IoMdSkipBackward/>
                     </button>
-                    <button className="cursor-pointer hover:bg-primary-text rounded-full p-3 hover:text-black transition-all duration-300">
-                        <IoMdPlay/>
+                    <button onClick={togglePlayBotton} className="cursor-pointer hover:bg-primary-text rounded-full p-3 hover:text-black transition-all duration-300">
+                        
+                        {isPlaying ? <IoMdPause/> : <IoMdPlay/>}
                     </button>
                     <button className="text-xl text-secondary-text">
                         <IoMdSkipForward/>
@@ -57,6 +82,7 @@ export default function MusicPlayer () {
             </div>
 
             {/* volume control */}
+
             <div className="flex gap-2 items-center">
                 <button>
                     <LuRepeat1/>
@@ -68,7 +94,6 @@ export default function MusicPlayer () {
                         <IoMdVolumeHigh/>
                     </button>
                     <input type="Range" min="0" max="100" className="w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none" />
-
             </div>
 
         </div>
