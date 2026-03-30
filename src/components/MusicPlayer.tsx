@@ -1,6 +1,7 @@
 "use client"
+import { time } from "console";
 import Image from "next/image"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoMdPause, IoMdPlay, IoMdSkipBackward, IoMdSkipForward, IoMdVolumeHigh } from "react-icons/io"
 import { LuRepeat1 } from "react-icons/lu"
 import { MdOutlineQueueMusic } from "react-icons/md"
@@ -12,7 +13,7 @@ export default function MusicPlayer () {
     const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(50);
     const [currentTime, setCurrentTime] = useState (0);
-    const [duration, setDuration] = useState(); 
+    const [duration, setDuration] = useState(0); 
     
 
     const togglePlayBotton  = ()=> {
@@ -25,6 +26,30 @@ export default function MusicPlayer () {
             audioRef.current.play();
         }
         setIsPlaying(!isPlaying)
+    }
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if(!audio) return;
+
+
+        const updateTime = () => {
+            setCurrentTime(audio.currentTime)
+            setDuration(audio.duration | 0)
+
+        }
+            audio.addEventListener("timeupdate", updateTime);
+            audio.addEventListener("loadedmetadata", updateTime);
+
+    },[]);
+
+
+    const formatTime = (time: number) => {
+    const minutes = Math.floor(time/60);
+    const seconds = Math.floor(time % 60).toString().padStart(2,"0");
+    
+    
+    return `${minutes}:${seconds}`;
     }
   return (
     <div className="fixed bottom-0 left-0 w-full bg-black text-white px-4 py-3 shadow-md z-50">
@@ -54,6 +79,7 @@ export default function MusicPlayer () {
                     <button onClick={togglePlayBotton} className="cursor-pointer hover:bg-primary-text rounded-full p-3 hover:text-black transition-all duration-300">
                         
                         {isPlaying ? <IoMdPause/> : <IoMdPlay/>}
+
                     </button>
                     <button className="text-xl text-secondary-text">
                         <IoMdSkipForward/>
@@ -63,7 +89,7 @@ export default function MusicPlayer () {
 
             <div className="w-full flex justify-center items-center gap-2">
                 <span className="text-secondary-text text-sm font-normal">
-                    1:45
+                    {formatTime(currentTime)}
                 </span>
                 <div className="w-full" >
                     <input type="range" min="" className="w-full outline-0 h-1 bg-zinc-700 rounded-md  
@@ -72,7 +98,7 @@ export default function MusicPlayer () {
 
                 </div>
                 <span className="text-secondary-text text-sm font-normal" >
-                    3:45
+                    {formatTime(duration)}
                 </span>
 
             </div>
