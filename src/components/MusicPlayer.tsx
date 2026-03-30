@@ -1,7 +1,7 @@
 "use client"
 import { time } from "console";
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoMdPause, IoMdPlay, IoMdSkipBackward, IoMdSkipForward, IoMdVolumeHigh } from "react-icons/io"
 import { LuRepeat1 } from "react-icons/lu"
 import { MdOutlineQueueMusic } from "react-icons/md"
@@ -51,6 +51,26 @@ export default function MusicPlayer () {
     
     return `${minutes}:${seconds}`;
     }
+
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
+
+        const newTime = parseFloat(e.target.value);
+
+        if(audioRef.current){
+            audioRef.current.currentTime = newTime;
+            setCurrentTime(newTime);
+        }
+
+    }
+
+    const handleVolumeChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+        const vol = parseInt (e.target.value);
+
+        setVolume (vol);
+        if(audioRef.current) {
+            audioRef.current.volume = vol / 100;
+        }
+    }
   return (
     <div className="fixed bottom-0 left-0 w-full bg-black text-white px-4 py-3 shadow-md z-50">
 
@@ -92,7 +112,14 @@ export default function MusicPlayer () {
                     {formatTime(currentTime)}
                 </span>
                 <div className="w-full" >
-                    <input type="range" min="" className="w-full outline-0 h-1 bg-zinc-700 rounded-md  
+                    <input 
+                    onChange={handleChange}
+
+                    type="range"
+                    min="0" 
+                    max={duration}
+                    value={currentTime}
+                    className="w-full outline-0 h-1 bg-zinc-700 rounded-md  
                         
                     appearance-none accent-white" />
 
@@ -119,7 +146,7 @@ export default function MusicPlayer () {
                     <button className="text-secondary-text text-xl cursor-pointer">
                         <IoMdVolumeHigh/>
                     </button>
-                    <input type="Range" min="0" max="100" className="w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none" />
+                    <input onChange={handleVolumeChange} value={volume} type="Range" min="0" max="100" className="w-[100px] outline-none h-1 bg-zinc-700 accent-white appearance-none" />
             </div>
 
         </div>
