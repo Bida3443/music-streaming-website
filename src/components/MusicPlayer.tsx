@@ -19,7 +19,7 @@ export default function MusicPlayer() {
   const [volume, setVolume] = useState(50);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [previousVolume, setPreviousVolume] = useState();
+  const [previousVolume, setPreviousVolume] = useState(0);
 
   const togglePlayBotton = () => {
     if (!audioRef.current) return;
