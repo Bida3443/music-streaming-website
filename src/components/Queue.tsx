@@ -1,9 +1,26 @@
+"use client"
+
+import { PlayerContext } from "@/layouts/FrontendLayout"
 import Image from "next/image"
+import { useContext } from "react"
+
+
 
 
 export default function Queue() {
+
+    const context = useContext (PlayerContext);
+
+        if(!context) {
+            throw new Error ("player context must be within a provider");
+        }
+
+        const {isQueueModalOpen} = context;
+        
+    if(!isQueueModalOpen) return null;
+
     return(
-        <div className= "fixed top-18 right-15 z-50 max-w-75 w-full h-[75vh] bg-black border p-4 overflow-y-auto rounded-md">
+        <div className="fixed top-18 right-15 z-50 max-w-75 w-full h-[75vh] bg-black border p-4 overflow-y-auto rounded-md">
                 <h2>Queue</h2>
 
                 <div className="mt-8">

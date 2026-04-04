@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 
 import Navbar from "@/src/components/Navbar";
@@ -5,19 +7,17 @@ import Sidebar from "@/src/components/Sidebar";
 // import Allsongs from "@/src/components/Allsongs";
 import MusicPlayer from "@/src/components/MusicPlayer";
 import Queue from "@/src/components/Queue";
-import { createContext } from "vm";
+import { createContext } from "react";
 
 
 type PlayerContextType = {
     isQueueModalOpen:boolean;
     setQueueModalOpen:React.Dispatch<React.SetStateAction<boolean>>
 }
-
-
-const PlayerContext = createContext(undefined);
+ 
+export const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
 const [isQueueModalOpen, setQueueModalOpen] = useState(false);
-
 
 
 export default function FrontendLayout({
@@ -28,8 +28,7 @@ export default function FrontendLayout({
         isQueueModalOpen,
         setQueueModalOpen
     }
-    
-    
+
     }>
 <div className="min-h-screen">
       <Navbar />
