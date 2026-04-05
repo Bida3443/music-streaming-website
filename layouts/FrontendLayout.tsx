@@ -31,7 +31,7 @@ export default function FrontendLayout({
     }
  
     }>
-<div className="min-h-screen flex  ">
+<div className="min-h-screen ">
       <Navbar />
       <main>
         <Sidebar />
