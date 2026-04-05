@@ -31,7 +31,7 @@ export default function FrontendLayout({
     }
  
     }>
-<div className="min-h-screen flex justify-center mx-auto ">
+<div className="min-h-screen flex justify-center mx-auto items-center gap-4 ">
       <Navbar />
       <main>
         <Sidebar />
