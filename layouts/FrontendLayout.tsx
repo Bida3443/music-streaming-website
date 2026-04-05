@@ -17,18 +17,19 @@ type PlayerContextType = {
  
 export const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
-const [isQueueModalOpen, setQueueModalOpen] = useState(false);
-
 
 export default function FrontendLayout({
+    
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+    const [isQueueModalOpen, setQueueModalOpen] = useState(false);
   return (
     <PlayerContext.Provider value= {{
         isQueueModalOpen,
         setQueueModalOpen
     }
-
+ 
     }>
 <div className="min-h-screen">
       <Navbar />
