@@ -21,7 +21,7 @@ export default function Queue() {
 
     return(
         <div className="fixed top-18 right-15 z-50 max-w-75 w-full h-[75vh] bg-black border p-4 overflow-y-auto rounded-md">
-                <h2 className="flex justify-center-safe items-center">Queue</h2>
+                <h2 className="flex justify-center-safe items-center max-w-0.5">Queue</h2>
 
                 <div className="mt-8">
                     <h2 className="text-white font-bold mb-3">Now Playing</h2>
