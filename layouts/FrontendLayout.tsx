@@ -19,6 +19,7 @@ type PlayerContextType = {
 export const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
 
+
 export default function FrontendLayout({
     
   children,
@@ -37,6 +38,7 @@ export default function FrontendLayout({
       <main>
         <Sidebar />
         <Queue />
+        
         <MusicPlayer />
         {children}
       </main>

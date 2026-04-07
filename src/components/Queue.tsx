@@ -39,7 +39,7 @@ export default function Queue() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 flex">
                     <h2 className="text-white font-bold mb-3">Queue List</h2>
                     <div className="flex items-center gap-2 cursor-pointer mb-2 p-2 rounded-lg hover:bg-hover">
                         <Image
