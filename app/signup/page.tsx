@@ -1,8 +1,17 @@
 // import React from 'react'
+"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 
-export default function Page  (){
+
+export default function Page(){
+    const [Name,setName] = useState ("");
+    const [email,setEmail] = useState ("");
+    const [Password,setPassword] = useState ("");
+    const [mesage,setMessage] = useState("")
+    
+
   return (
     <div className="h-screen flex justify-center items-center w-full bg-hover">
         <div className="bg-background flex flex-col items-center px-0 lg:px-12 py-6 rounded-md max-w-100 w-[90%]">
