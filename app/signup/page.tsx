@@ -5,15 +5,22 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Page() {
-  const [Name, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSignup = async (e : React.FormEvent) =>{
+  const handleSignup = async (e : React.FormEvent) => {
 
     e.preventDefault();  
 
+
+    if (!name.trim() || !email.trim () || !Password.trim()) {
+      setMessage("All fileds are required");
+      return;
+    }
+
+    
   } 
 
   return (
@@ -29,12 +36,14 @@ export default function Page() {
         <h2 className="text-2xl font-bold text-white mb-3">
           Sign up to Sportify
         </h2>
-        <form >
+        <form onSubmit={handleSignup} >
+
+          {message && <p className="bg-primary font-semibold text-center mb-4 py-1">{message}</p>}
           <input
             onChange={(e) => setName(e.target.value)}
-            value={Name}
+            value={name}
             type="text"
-            placeholder="Your Name "
+            placeholder="Your Name"
             className="outline-none border border-neutral-600 p-2 w-full rounded-md text-primary-text placeholder-neutral-600 mb-6 focus:text-secondary-text"
           />
           <input
