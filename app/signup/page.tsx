@@ -1,10 +1,13 @@
 // import React from 'react'
 "use client";
+import signUpUser from "@/lib/auth/signUpUser";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Page() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -19,9 +22,20 @@ export default function Page() {
       setMessage("All fileds are required");
       return;
     }
+const result = await signUpUser (name,email,Password);
+ 
+if(result?.error){
+  setMessage(result.error);
+}else{
+  setMessage("Signup succeeful");
+  setTimeout(() => {
+    router.push("/");
+  }, 3000);
 
-    
+  }
+
   } 
+
 
   return (
     <div className="h-screen flex justify-center items-center w-full bg-hover">
