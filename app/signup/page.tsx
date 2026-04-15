@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+
 export default function Page() {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -52,7 +53,7 @@ if(result?.error){
         </h2>
         <form onSubmit={handleSignup} >
 
-          {message && <p className="bg-primary font-semibold text-center mb-4 py-1">{message}</p>}
+          {message && <p className="bg-primary font-semibold text-center mb-4 py-1 flex">{message}</p>}
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
