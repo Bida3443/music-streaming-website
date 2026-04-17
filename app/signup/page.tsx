@@ -50,10 +50,10 @@ if(result?.error){
         />
         <h2 className="text-2xl font-bold text-white mb-3">
           Sign up to Sportify
-        </h2>  
+        </h2>     
         <form onSubmit={handleSignup} >
 
-          {message && <p className="bg-primary font-semibold text-center mb-4 py-1">{message}</p>}
+          {message && <p className="bg-primary font-semibold text-center mb-4 py-1 flex justify-center">{message}</p>}
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
