@@ -53,7 +53,7 @@ if(result?.error){
         </h2>     
         <form onSubmit={handleSignup} >
 
-          {message && <p className="bg-primary font-semibold text-center mb-4 py-1 flex justify-center">{message}</p>}
+          {message && <p className="bg-primary font-semibold text-center mb-4 py-1 flex ">{message}</p>}
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
